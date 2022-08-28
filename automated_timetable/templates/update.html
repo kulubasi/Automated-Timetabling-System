@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-5.2.0-dist/css/bootstrap.min.css'%}">
+	<title></title>
+</head>
+<body>
+
+	<!-- start of nav -->
+		<nav class="navbar navbar-expand-lg bg-light">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="#">Timetabling system</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNav" >
+		      <ul class="navbar-nav ml-auto" >
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#"></a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#"></a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		<!-- end of nav -->
+	<div class="container" >
+		<h2 class="text-center">Update Record</h2>
+		<div class="d-flex justify-content-center">
+		<form action="updaterecord/{{ mymember.id }}" method="post" >
+		{% csrf_token %}
+			<label>First Name:</label><br>
+			<input name="newcoursename" value="{{ mymember.coursename }}" size="80">
+		<br><br>
+			Course Code:<br>
+			<input name="newcoursecode" value="{{ mymember.coursecode }}" size="80">
+		<br><br>
+			Lecturer:<br>
+			<input name="newlecturer" value="{{ mymember.lecturer }}" size="80">
+			<br><br>
+			Day:<br>
+			<input name="newday" value="{{ mymember.day }}" size="80">
+			<br><br>
+			Room Number:<br>
+			<input name="newroomno" value="{{ mymember.roomno }}" size="80">
+			<br><br>
+			<input type="submit" value="Submit" class="btn btn-primary">
+		</form>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="{% static 'bootstrap-5.2.0-dist/css/bootstrap.min.js'%}"></script>
+</body>
+</html>
